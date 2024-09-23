@@ -53,8 +53,12 @@
 
 .player-one-col-one-total,
 .player-one-col-two-total,
-.player-one-col-three-total{
-    text-align: center;    
+.player-one-col-three-total,
+.player-two-col-one-total,
+.player-two-col-two-total,
+.player-two-col-three-total{
+    text-align: center;  
+    height: 10px;
 }
 
 .column{

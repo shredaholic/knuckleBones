@@ -19,6 +19,7 @@ const playerTwoColTwoTotal = document.querySelector('.player-two-col-two-total')
 const playerTwoColThreeTotal = document.querySelector('.player-two-col-three-total')
 const playerTwoScore = document.querySelector('.player-two-score')
 
+//player 1
 let playerOneRoll = null
 
 let playerOneColOneDice = []
@@ -46,50 +47,76 @@ let pTwoColThreeTotal = null
 
 
 
-
+//player 1///////////////////////////////////////////////////////
 playerOneRollBtn.addEventListener('click', ()=>{
     playerOneRoll = rollDice()
     playerOneDiceRoll.innerText =  playerOneRoll
 })
 
-playerTwoRollBtn.addEventListener('click', ()=>{
-    playerTwoRoll = rollDice()
-    playerTwoDiceRoll.innerText = playerTwoRoll
-})
+
 
 playerOneColOne.addEventListener('click', ()=>{
-    playerOneColOneDice.push(playerOneRoll)
+    if(playerOneColOneDice.length < 3){
+        playerOneColOneDice.push(playerOneRoll)
+        playerOneDiceRoll.innerText =  null
+    }
+    
     pOneColOneTotal = playerOneColOneDice.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
     playerOneBoard()
 })
 
 playerOneColTwo.addEventListener('click', ()=>{
-    playerOneColTwoDice.push(playerOneRoll)
+    if(playerOneColTwoDice.length < 3){
+        playerOneColTwoDice.push(playerOneRoll)
+        playerOneDiceRoll.innerText =  null
+    }
+
     pOneColTwoTotal = playerOneColTwoDice.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
     playerOneBoard()
 })
 
 playerOneColThree.addEventListener('click', ()=>{
-    playerOneColThreeDice.push(playerOneRoll)
+    if(playerOneColThreeDice.length < 3){
+        playerOneColThreeDice.push(playerOneRoll)
+        playerOneDiceRoll.innerText =  null
+    }
+
     pOneColThreeTotal = playerOneColThreeDice.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
     playerOneBoard()
 })
 
-//player 2
+//player 2/////////////////////////////////////////////////////////////////////////////////////
+playerTwoRollBtn.addEventListener('click', ()=>{
+    playerTwoRoll = rollDice()
+    playerTwoDiceRoll.innerText = playerTwoRoll
+})
+
 playerTwoColOne.addEventListener('click', ()=>{
-    playerTwoColOneDice.push(playerTwoRoll)
+    if(playerTwoColOneDice.length < 3){
+        playerTwoColOneDice.push(playerTwoRoll)
+        playerTwoDiceRoll.innerText =  null
+    }
+
     pTwoColOneTotal = playerTwoColOneDice.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
     playerTwoBoard()
 })
 
 playerTwoColTwo.addEventListener('click', ()=>{
-    playerTwoColTwoDice.push(playerTwoRoll)
+    if(playerTwoColTwoDice.length < 3){
+        playerTwoColTwoDice.push(playerTwoRoll)
+        playerTwoDiceRoll.innerText =  null
+    }
+
     pTwoColTwoTotal = playerTwoColTwoDice.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
     playerTwoBoard()
 })
 
 playerTwoColThree.addEventListener('click', ()=>{
-    playerTwoColThreeDice.push(playerTwoRoll)
+   if(playerTwoColThreeDice.length < 3){
+        playerTwoColThreeDice.push(playerTwoRoll)
+        playerTwoDiceRoll.innerText =  null
+    }
+
     pTwoColThreeTotal = playerTwoColThreeDice.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
     playerTwoBoard()
 })
@@ -100,6 +127,7 @@ function rollDice(){
     const time = Date.now()
     return (Math.floor((time % 6) + 1))
 }
+
 
 
 function playerOneBoard(){
