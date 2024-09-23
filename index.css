@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.player-one,
+.player-two{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 50%;
+    border: 1px solid red;
+    height: 50vh;
+}
+
+.dice-column{
+    margin: 10px;
+    border: 1px solid blue;
+    width: 100px;
+    height: 300px;
+}
+
+.dye{
+    border: 1px solid gold;
+    width: 100%;
+    height: 100px;
+}
+
+.player-one-dice-roll,
+.player-two-dice-roll{
+    border: 1px solid green;
+    width: 100px;
+    height: 100px;
+}
+
+.player-one-score,
+.player-two-score{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid green;
+    width: 100px;
+    height: 50px;
+}
+
+.roll-dice-btn{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100px;
+
+}
+
+.player-one-col-one-total,
+.player-one-col-two-total,
+.player-one-col-three-total{
+    text-align: center;    
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.dice-column:hover{
+  border: 1px solid pink
+}
