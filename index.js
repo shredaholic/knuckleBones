@@ -46,6 +46,41 @@ let playerTwoColThreeDice = []
 let pTwoColThreeTotal = null
 
 
+function getTotal(arr){
+    if(arr.length === 1){
+        return arr[0]
+    }
+    
+    if(arr.length === 2){
+        if(arr[0] === arr[1]){
+            return (arr[0] + arr[1]) * 2
+        }
+        else{
+            return arr[0] + arr[1]
+        }
+    }
+
+    if(arr.length === 3){
+        if(arr[0] === arr[1] && arr[0] === arr[2]){
+            return (arr[0] + arr[1] + arr[2]) * 3
+        }
+        else if(arr[0] === arr[1]){
+            return (arr[0] + arr[1]) * 2 + arr[2]
+        }
+        else if(arr[0] === arr[2]){
+            return (arr[0] + arr[2]) * 2 + arr[1]
+        }  
+        else if(arr[1] === arr[2]){
+            return (arr[1] + arr[2]) * 2 + arr[0]
+        }  
+        else{
+            return arr[0] + arr[1] + arr[2]
+        }
+    }
+
+    return null
+}
+
 
 //player 1///////////////////////////////////////////////////////
 playerOneRollBtn.addEventListener('click', ()=>{
@@ -54,35 +89,50 @@ playerOneRollBtn.addEventListener('click', ()=>{
 })
 
 
-
 playerOneColOne.addEventListener('click', ()=>{
-    if(playerOneColOneDice.length < 3){
-        playerOneColOneDice.push(playerOneRoll)
-        playerOneDiceRoll.innerText =  null
+    if(playerTwoColOneDice.includes(playerOneRoll)){
+        playerTwoColOneDice = playerTwoColOneDice.filter(num => num !== playerOneRoll)
+        pTwoColOneTotal = getTotal(playerTwoColOneDice)
     }
     
-    pOneColOneTotal = playerOneColOneDice.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
-    playerOneBoard()
+    if(playerOneColOneDice.length < 3){
+        playerOneColOneDice.push(playerOneRoll)
+        pOneColOneTotal = getTotal(playerOneColOneDice)
+        playerOneDiceRoll.innerText =  null
+    }
+
+    playerBoard()
 })
 
 playerOneColTwo.addEventListener('click', ()=>{
+    if(playerTwoColTwoDice.includes(playerOneRoll)){
+        playerTwoColTwoDice = playerTwoColTwoDice.filter(num => num !== playerOneRoll)
+        pTwoColTwoTotal = getTotal(playerTwoColTwoDice)    
+    }
+
+
     if(playerOneColTwoDice.length < 3){
         playerOneColTwoDice.push(playerOneRoll)
+        pOneColTwoTotal = getTotal(playerOneColTwoDice)
         playerOneDiceRoll.innerText =  null
     }
 
-    pOneColTwoTotal = playerOneColTwoDice.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
-    playerOneBoard()
+    playerBoard()
 })
 
 playerOneColThree.addEventListener('click', ()=>{
+    if(playerTwoColThreeDice.includes(playerOneRoll)){
+        playerTwoColThreeDice = playerTwoColThreeDice.filter(num => num !== playerOneRoll)
+        pTwoColThreeTotal = getTotal(playerTwoColThreeDice)    
+    }
+    
     if(playerOneColThreeDice.length < 3){
         playerOneColThreeDice.push(playerOneRoll)
+        pOneColThreeTotal = getTotal(playerOneColThreeDice)
         playerOneDiceRoll.innerText =  null
     }
 
-    pOneColThreeTotal = playerOneColThreeDice.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
-    playerOneBoard()
+    playerBoard()
 })
 
 //player 2/////////////////////////////////////////////////////////////////////////////////////
@@ -92,33 +142,48 @@ playerTwoRollBtn.addEventListener('click', ()=>{
 })
 
 playerTwoColOne.addEventListener('click', ()=>{
+    if(playerOneColOneDice.includes(playerTwoRoll)){
+        playerOneColOneDice = playerOneColOneDice.filter(num => num !== playerTwoRoll)
+        pOneColOneTotal = getTotal(playerOneColOneDice)
+    }
+    
     if(playerTwoColOneDice.length < 3){
         playerTwoColOneDice.push(playerTwoRoll)
+        pTwoColOneTotal = getTotal(playerTwoColOneDice)
         playerTwoDiceRoll.innerText =  null
     }
 
-    pTwoColOneTotal = playerTwoColOneDice.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
-    playerTwoBoard()
+    playerBoard()
 })
 
 playerTwoColTwo.addEventListener('click', ()=>{
+    if(playerOneColTwoDice.includes(playerTwoRoll)){
+        playerOneColTwoDice = playerOneColTwoDice.filter(num => num !== playerTwoRoll)
+        pOneColTwoTotal = getTotal(playerOneColTwoDice)
+    }
+    
     if(playerTwoColTwoDice.length < 3){
         playerTwoColTwoDice.push(playerTwoRoll)
+        pTwoColTwoTotal = getTotal(playerTwoColTwoDice)
         playerTwoDiceRoll.innerText =  null
     }
 
-    pTwoColTwoTotal = playerTwoColTwoDice.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
-    playerTwoBoard()
+    playerBoard()
 })
 
 playerTwoColThree.addEventListener('click', ()=>{
-   if(playerTwoColThreeDice.length < 3){
+    if(playerOneColThreeDice.includes(playerTwoRoll)){
+        playerOneColThreeDice = playerOneColThreeDice.filter(num => num !== playerTwoRoll)
+        pOneColThreeTotal = getTotal(playerOneColThreeDice)
+    }
+    
+    if(playerTwoColThreeDice.length < 3){
         playerTwoColThreeDice.push(playerTwoRoll)
+        pTwoColThreeTotal = getTotal(playerTwoColThreeDice)
         playerTwoDiceRoll.innerText =  null
     }
 
-    pTwoColThreeTotal = playerTwoColThreeDice.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
-    playerTwoBoard()
+    playerBoard()
 })
 
 
@@ -130,7 +195,7 @@ function rollDice(){
 
 
 
-function playerOneBoard(){
+function playerBoard(){
     document.querySelector('.player-one-col-one-dice-one').innerText = playerOneColOneDice[0] !== undefined ? playerOneColOneDice[0] : ''
     document.querySelector('.player-one-col-one-dice-two').innerText = playerOneColOneDice[1] !== undefined ? playerOneColOneDice[1] : ''
     document.querySelector('.player-one-col-one-dice-three').innerText = playerOneColOneDice[2] !== undefined ? playerOneColOneDice[2] : ''
@@ -148,9 +213,6 @@ function playerOneBoard(){
 
     playerOneScore.innerText = pOneColOneTotal + pOneColTwoTotal + pOneColThreeTotal
 
-}
-
-function playerTwoBoard(){
     document.querySelector('.player-two-col-one-dice-one').innerText = playerTwoColOneDice[0] !== undefined ? playerTwoColOneDice[0] : ''
     document.querySelector('.player-two-col-one-dice-two').innerText = playerTwoColOneDice[1] !== undefined ? playerTwoColOneDice[1] : ''
     document.querySelector('.player-two-col-one-dice-three').innerText = playerTwoColOneDice[2] !== undefined ? playerTwoColOneDice[2] : ''
