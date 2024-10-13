@@ -19,6 +19,17 @@ const playerTwoColTwoTotal = document.querySelector('.player-two-col-two-total')
 const playerTwoColThreeTotal = document.querySelector('.player-two-col-three-total')
 const playerTwoScore = document.querySelector('.player-two-score')
 
+const diceArr = [
+"<img src='' alt='empty dice'/>",
+"<img src='assets/d1.png' alt='dice one'/>",
+"<img src='assets/d2.png' alt='dice two'/>",
+"<img src='assets/d3.png' alt='dice three'/>",
+"<img src='assets/d4.png' alt='dice four'/>",
+"<img src='assets/d5.png' alt='dice five'/>",
+"<img src='assets/d6.png' alt='dice six'/>"
+]
+
+
 //player 1
 let playerOneRoll = null
 
@@ -85,7 +96,7 @@ function getTotal(arr){
 //player 1///////////////////////////////////////////////////////
 playerOneRollBtn.addEventListener('click', ()=>{
     playerOneRoll = rollDice()
-    playerOneDiceRoll.innerText =  playerOneRoll
+    playerOneDiceRoll.innerHTML = diceArr[playerOneRoll]
 })
 
 
@@ -138,7 +149,7 @@ playerOneColThree.addEventListener('click', ()=>{
 //player 2/////////////////////////////////////////////////////////////////////////////////////
 playerTwoRollBtn.addEventListener('click', ()=>{
     playerTwoRoll = rollDice()
-    playerTwoDiceRoll.innerText = playerTwoRoll
+    playerTwoDiceRoll.innerHTML = diceArr[playerTwoRoll]
 })
 
 playerTwoColOne.addEventListener('click', ()=>{
@@ -196,36 +207,36 @@ function rollDice(){
 
 
 function playerBoard(){
-    document.querySelector('.player-one-col-one-dice-one').innerText = playerOneColOneDice[0] !== undefined ? playerOneColOneDice[0] : ''
-    document.querySelector('.player-one-col-one-dice-two').innerText = playerOneColOneDice[1] !== undefined ? playerOneColOneDice[1] : ''
-    document.querySelector('.player-one-col-one-dice-three').innerText = playerOneColOneDice[2] !== undefined ? playerOneColOneDice[2] : ''
+    document.querySelector('.player-one-col-one-dice-one').innerHTML = playerOneColOneDice[0] !== undefined ? diceArr[playerOneColOneDice[0]] : ''
+    document.querySelector('.player-one-col-one-dice-two').innerHTML = playerOneColOneDice[1] !== undefined ? diceArr[playerOneColOneDice[1]] : ''
+    document.querySelector('.player-one-col-one-dice-three').innerHTML = playerOneColOneDice[2] !== undefined ? diceArr[playerOneColOneDice[2]] : ''
     playerOneColOneTotal.innerText = pOneColOneTotal
 
-    document.querySelector('.player-one-col-two-dice-one').innerText = playerOneColTwoDice[0] !== undefined ? playerOneColTwoDice[0] : ''
-    document.querySelector('.player-one-col-two-dice-two').innerText = playerOneColTwoDice[1] !== undefined ? playerOneColTwoDice[1] : ''
-    document.querySelector('.player-one-col-two-dice-three').innerText = playerOneColTwoDice[2] !== undefined ? playerOneColTwoDice[2] : ''
+    document.querySelector('.player-one-col-two-dice-one').innerHTML = playerOneColTwoDice[0] !== undefined ? diceArr[playerOneColTwoDice[0]] : ''
+    document.querySelector('.player-one-col-two-dice-two').innerHTML = playerOneColTwoDice[1] !== undefined ? diceArr[playerOneColTwoDice[1]] : ''
+    document.querySelector('.player-one-col-two-dice-three').innerHTML = playerOneColTwoDice[2] !== undefined ? diceArr[playerOneColTwoDice[2]] : ''
     playerOneColTwoTotal.innerText = pOneColTwoTotal 
 
-    document.querySelector('.player-one-col-three-dice-one').innerText = playerOneColThreeDice[0] !== undefined ? playerOneColThreeDice[0] : ''
-    document.querySelector('.player-one-col-three-dice-two').innerText = playerOneColThreeDice[1] !== undefined ? playerOneColThreeDice[1] : ''
-    document.querySelector('.player-one-col-three-dice-three').innerText = playerOneColThreeDice[2] !== undefined ? playerOneColThreeDice[2] : ''
+    document.querySelector('.player-one-col-three-dice-one').innerHTML = playerOneColThreeDice[0] !== undefined ? diceArr[playerOneColThreeDice[0]] : ''
+    document.querySelector('.player-one-col-three-dice-two').innerHTML = playerOneColThreeDice[1] !== undefined ? diceArr[playerOneColThreeDice[1]] : ''
+    document.querySelector('.player-one-col-three-dice-three').innerHTML = playerOneColThreeDice[2] !== undefined ? diceArr[playerOneColThreeDice[2]] : ''
     playerOneColThreeTotal.innerText = pOneColThreeTotal
 
     playerOneScore.innerText = pOneColOneTotal + pOneColTwoTotal + pOneColThreeTotal
 
-    document.querySelector('.player-two-col-one-dice-one').innerText = playerTwoColOneDice[0] !== undefined ? playerTwoColOneDice[0] : ''
-    document.querySelector('.player-two-col-one-dice-two').innerText = playerTwoColOneDice[1] !== undefined ? playerTwoColOneDice[1] : ''
-    document.querySelector('.player-two-col-one-dice-three').innerText = playerTwoColOneDice[2] !== undefined ? playerTwoColOneDice[2] : ''
+    document.querySelector('.player-two-col-one-dice-one').innerHTML = playerTwoColOneDice[0] !== undefined ? diceArr[playerTwoColOneDice[0]] : ''
+    document.querySelector('.player-two-col-one-dice-two').innerHTML = playerTwoColOneDice[1] !== undefined ? diceArr[playerTwoColOneDice[1]] : ''
+    document.querySelector('.player-two-col-one-dice-three').innerHTML = playerTwoColOneDice[2] !== undefined ? diceArr[playerTwoColOneDice[2]] : ''
     playerTwoColOneTotal.innerText = pTwoColOneTotal
 
-    document.querySelector('.player-two-col-two-dice-one').innerText = playerTwoColTwoDice[0] !== undefined ? playerTwoColTwoDice[0] : ''
-    document.querySelector('.player-two-col-two-dice-two').innerText = playerTwoColTwoDice[1] !== undefined ? playerTwoColTwoDice[1] : ''
-    document.querySelector('.player-two-col-two-dice-three').innerText = playerTwoColTwoDice[2] !== undefined ? playerTwoColTwoDice[2] : ''
+    document.querySelector('.player-two-col-two-dice-one').innerHTML = playerTwoColTwoDice[0] !== undefined ? diceArr[playerTwoColTwoDice[0]] : ''
+    document.querySelector('.player-two-col-two-dice-two').innerHTML = playerTwoColTwoDice[1] !== undefined ? diceArr[playerTwoColTwoDice[1]] : ''
+    document.querySelector('.player-two-col-two-dice-three').innerHTML = playerTwoColTwoDice[2] !== undefined ? diceArr[playerTwoColTwoDice[2]] : ''
     playerTwoColTwoTotal.innerText = pTwoColTwoTotal 
 
-    document.querySelector('.player-two-col-three-dice-one').innerText = playerTwoColThreeDice[0] !== undefined ? playerTwoColThreeDice[0] : ''
-    document.querySelector('.player-two-col-three-dice-two').innerText = playerTwoColThreeDice[1] !== undefined ? playerTwoColThreeDice[1] : ''
-    document.querySelector('.player-two-col-three-dice-three').innerText = playerTwoColThreeDice[2] !== undefined ? playerTwoColThreeDice[2] : ''
+    document.querySelector('.player-two-col-three-dice-one').innerHTML = playerTwoColThreeDice[0] !== undefined ? diceArr[playerTwoColThreeDice[0]] : ''
+    document.querySelector('.player-two-col-three-dice-two').innerHTML = playerTwoColThreeDice[1] !== undefined ? diceArr[playerTwoColThreeDice[1]] : ''
+    document.querySelector('.player-two-col-three-dice-three').innerHTML = playerTwoColThreeDice[2] !== undefined ? diceArr[playerTwoColThreeDice[2]] : ''
     playerTwoColThreeTotal.innerText = pTwoColThreeTotal
 
     playerTwoScore.innerText = pTwoColOneTotal + pTwoColTwoTotal + pTwoColThreeTotal

@@ -8,6 +8,10 @@ body{
     background-size: cover;
 }
 
+img{
+    width: 100px;
+    height: 100px;
+}
 .player-one,
 .player-two{
     display: flex;
@@ -23,7 +27,7 @@ body{
     margin: 10px;
     border-radius: 5px;
     width: 110px;
-    height: 300px;
+    height: 310px;
 }
 
 .player-one-col-one,
@@ -45,9 +49,10 @@ body{
 
 .player-one-dice-roll,
 .player-two-dice-roll{
-    border: 1px solid green;
-    width: 100px;
-    height: 100px;
+    border: 5px solid green;
+    border-radius: 5px;
+    width: 110px;
+    height: 110px;
     color: aliceblue;
 }
 
@@ -68,8 +73,8 @@ body{
 .roll-dice-btn{
     margin-top: 10px;
     margin-bottom: 10px;
-    width: 100px;
-    color:#2323ff;
+    width: 110px;
+    color: black;
     font-size: 15px;
     font-weight: 900;
     padding: 5px 10px;
@@ -85,11 +90,11 @@ body{
 .player-two-col-two-total,
 .player-two-col-three-total{
     text-align: center;  
-    height: 20px;
-    
-    font-size: 20px;
+    font-size: 30px;
     color: white;
 }
+
+
 
 .column{
     display: flex;
