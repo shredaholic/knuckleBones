@@ -3,26 +3,42 @@
     box-sizing: border-box;
 }
 
+body{
+    background-image: url('assets/space.jpeg');
+    background-size: cover;
+}
+
 .player-one,
 .player-two{
     display: flex;
     justify-content: center;
+    gap: 20px;
     align-items: center;
     margin: 0 auto;
     width: 50%;
-    border: 1px solid red;
     height: 50vh;
 }
 
 .dice-column{
     margin: 10px;
-    border: 1px solid blue;
-    width: 100px;
+    border-radius: 5px;
+    width: 110px;
     height: 300px;
 }
 
+.player-one-col-one,
+.player-one-col-two,
+.player-one-col-three{
+    border: 5px solid #2323ff;
+}
+
+.player-two-col-one,
+.player-two-col-two,
+.player-two-col-three{
+    border: 5px solid #FF3131;
+}
+
 .dye{
-    border: 1px solid gold;
     width: 100%;
     height: 100px;
 }
@@ -32,23 +48,34 @@
     border: 1px solid green;
     width: 100px;
     height: 100px;
+    color: aliceblue;
 }
 
 .player-one-score,
 .player-two-score{
+    font-size: 50px;
+    color: aliceblue;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid green;
+    border: 5px solid gold;
+    border-radius: 5px;
     width: 100px;
     height: 50px;
+    padding: 30px 50px;
 }
 
 .roll-dice-btn{
     margin-top: 10px;
     margin-bottom: 10px;
     width: 100px;
-
+    color:#2323ff;
+    font-size: 15px;
+    font-weight: 900;
+    padding: 5px 10px;
+    background:  	#0FFF50;
+    border: none;
+    border-radius: 5px;
 }
 
 .player-one-col-one-total,
@@ -58,15 +85,20 @@
 .player-two-col-two-total,
 .player-two-col-three-total{
     text-align: center;  
-    height: 10px;
+    height: 20px;
+    
+    font-size: 20px;
+    color: white;
 }
 
 .column{
     display: flex;
     flex-direction: column;
     text-align: center;
+    border-radius: 5px;
+    
 }
 
 .dice-column:hover{
-  border: 1px solid pink
+  border: 5px solid gold;
 }
